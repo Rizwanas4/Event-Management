@@ -10,7 +10,8 @@ const app = express();
 app.use(express.json());
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://event-frontend-git-master-rizwanas-projects-7dc3c26f.vercel.app'
+  'https://event-frontend-git-master-rizwanas-projects-7dc3c26f.vercel.app',
+  'https://event-frontend-khaki.vercel.app'
 ];
 app.use(cors({
   origin: function (origin, callback) {
