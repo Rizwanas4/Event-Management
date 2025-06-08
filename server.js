@@ -8,8 +8,18 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+const allowedOrigins = [
+  'http://localhost:5173',
+  'event-frontend-git-master-rizwanas-projects-7dc3c26f.vercel.app'
+];
 app.use(cors({
-  origin: 'event-frontend-git-master-rizwanas-projects-7dc3c26f.vercel.app'  // 
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 
 const PORT = process.env.PORT || 5000;
