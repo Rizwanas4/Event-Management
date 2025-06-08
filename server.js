@@ -8,7 +8,9 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'event-frontend-git-master-rizwanas-projects-7dc3c26f.vercel.app'  // 
+}));
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = 'mongodb+srv://rizu:sathikbatcha@cluster0.o5nilkd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
